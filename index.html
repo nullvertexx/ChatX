@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ChatWave AI</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/extra.css" />
+  <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <main class="cw-shell" id="shell">
+
+    <!-- LEFT RAIL -->
+    <aside class="cw-rail" id="rail">
+      <div class="cw-brand">
+        <div class="cw-brand-mark"><i data-lucide="message-circle" width="21" height="21" fill="currentColor"></i></div>
+        <span>chatwave</span>
+        <span class="cw-brand-spark">✳</span>
+      </div>
+
+      <div class="cw-account">
+        <div class="cw-avatar avatar-slate">ME<span class="cw-presence"></span></div>
+        <div class="cw-account-text"><strong>You</strong><small>My personal space</small></div>
+      </div>
+
+      <div class="cw-search">
+        <i data-lucide="search" width="16" height="16"></i>
+        <input id="searchInput" aria-label="Search conversations" placeholder="Search conversations" />
+        <kbd>Ctrl K</kbd>
+      </div>
+
+      <div class="cw-list-head">
+        <span>ASSISTANTS</span>
+      </div>
+
+      <div class="cw-chat-list" id="chatList"></div>
+
+      <div class="cw-rail-bottom">
+        <button class="cw-nav-item" data-action="clear-all"><i data-lucide="trash-2" width="17" height="17"></i> Clear all chats</button>
+        <div class="cw-plan">
+          <div class="cw-plan-icon"><i data-lucide="sparkles" width="15" height="15"></i></div>
+          <div><strong>AI chatbot</strong><small>Replies can contain mistakes</small></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONVERSATION -->
+    <section class="cw-conversation" id="conversation">
+      <header class="cw-chat-header" id="chatHeader"></header>
+
+      <div class="cw-date-divider"><span></span><small>TODAY</small><span></span></div>
+
+      <div class="cw-message-area" id="messages" aria-live="polite"></div>
+
+      <div class="cw-compose-wrap">
+        <div class="cw-compose">
+          <textarea id="draft" aria-label="Write a message" rows="1"></textarea>
+          <div class="cw-compose-toolbar">
+            <div class="cw-compose-tools">
+              <button class="cw-icon-button" aria-label="Add emoji" data-action="emoji"><i data-lucide="smile" width="17" height="17"></i></button>
+            </div>
+            <div class="cw-send-hint">
+              <span>Enter to send · Shift + Enter for new line</span>
+              <button class="cw-send-button" id="sendBtn" aria-label="Send message" data-action="send" disabled><i data-lucide="send" width="16" height="16"></i></button>
+            </div>
+          </div>
+        </div>
+        <p class="cw-encryption-note"><i data-lucide="info" width="12" height="12"></i> AI can make mistakes. Double-check important information.</p>
+      </div>
+
+      <div class="cw-toast" id="toast" role="status" hidden>
+        <i data-lucide="info" width="15" height="15"></i>
+        <span id="toastText"></span>
+        <button aria-label="Dismiss" data-action="dismiss-toast"><i data-lucide="x" width="14" height="14"></i></button>
+      </div>
+    </section>
+
+    <!-- DETAILS -->
+    <aside class="cw-details" id="details"></aside>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
